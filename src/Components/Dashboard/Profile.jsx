@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "../../index.css";
 import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 
 const Profile = () => {
   const [userData, setUserData] = useState([]);
@@ -31,7 +33,9 @@ const Profile = () => {
     <div className="right__content__flex">
       <div className="user__info__top">
         <h3>Profile</h3>
-        <div className="user__img__name">
+        <label for="user_corner_img"></label>
+        <NavLink to={`/`}>
+        <div className="user__img__name user_corner_img">
           <img
             src={userData[params.id - 1].profilepicture}
             alt="usr_img"
@@ -39,6 +43,7 @@ const Profile = () => {
           />
           <p>{userData[params.id - 1].name}</p>
         </div>
+        </NavLink>
       </div>
 
       <div className="main__content__dashboard">
